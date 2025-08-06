@@ -1,46 +1,151 @@
-# Getting Started with Create React App
+# 🎮 GBA WebRTC Stream Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Um cliente React moderno e elegante para streaming de jogos GBA via WebRTC, com interface de usuário aprimorada e funcionalidades robustas.
 
-## Available Scripts
+## ✨ Características
 
-In the project directory, you can run:
+### 🎨 Interface Moderna
+- **Design Responsivo**: Adapta-se perfeitamente a diferentes tamanhos de tela
+- **Animações Suaves**: Transições e efeitos visuais elegantes
+- **Tema Escuro**: Interface com gradientes modernos e efeitos de vidro
+- **Feedback Visual**: Botões com estados visuais claros e animações
 
-### `npm start`
+### 🎮 Controles Intuitivos
+- **GamePad Virtual**: Layout otimizado similar ao Game Boy Advance
+- **Suporte Touch**: Funciona perfeitamente em dispositivos móveis
+- **Controles de Teclado**: Mapeamento completo de teclas
+- **Feedback Tátil**: Estados visuais para botões pressionados
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 📊 Monitoramento em Tempo Real
+- **Status de Conexão**: Indicadores visuais para vídeo e input
+- **Medição de Latência**: Ping em tempo real para ambas as conexões
+- **Indicadores de Estado**: Cores e animações para status de conexão
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🔧 Arquitetura Modular
+- **Componentes Reutilizáveis**: Estrutura limpa e organizada
+- **Hooks Personalizados**: Lógica de negócio separada da UI
+- **TypeScript**: Tipagem forte para melhor desenvolvimento
+- **Clean Code**: Código limpo e bem documentado
 
-### `npm test`
+## 🚀 Como Usar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Pré-requisitos
+- Node.js 16+ 
+- Servidor GBA Stream rodando em `http://localhost:5172`
 
-### `npm run build`
+### Instalação
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Desenvolvimento
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Build de Produção
+```bash
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎯 Funcionalidades
 
-### `npm run eject`
+### Controles Suportados
+- **D-Pad**: ↑ ↓ ← → (setas ou WASD)
+- **Botões A/B**: A, B (teclas A, B)
+- **Start/Select**: Enter, Espaço, Backspace, Shift
+- **Shoulder Buttons**: L, R (teclas L, R)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Estados de Conexão
+- **Conectado**: Verde com animação pulsante
+- **Desconectado**: Vermelho com animação pulsante
+- **Latência**: Exibida em tempo real
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Responsividade
+- **Desktop**: Layout otimizado para telas grandes
+- **Tablet**: Ajustes para telas médias
+- **Mobile**: Interface adaptada para touch
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🏗️ Estrutura do Projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+src/
+├── components/          # Componentes React
+│   ├── VideoPlayer.tsx  # Player de vídeo WebRTC
+│   ├── GamePad.tsx      # Controles virtuais
+│   ├── PingDisplay.tsx  # Exibição de latência
+│   ├── LoadingScreen.tsx # Tela de carregamento
+│   ├── ErrorScreen.tsx  # Tela de erro
+│   └── ConnectionStatus.tsx # Status de conexão
+├── hooks/               # Hooks personalizados
+│   ├── useMatchRobust.ts # Gerenciamento de match
+│   ├── useInputHandler.ts # Controle de input
+│   └── useButtonState.ts # Estado dos botões
+└── config.ts           # Configurações globais
+```
 
-## Learn More
+## 🎨 Componentes Principais
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### VideoPlayer
+- Conexão WebRTC robusta
+- Tratamento de erros
+- Medição de latência
+- Notificação de estado de conexão
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### GamePad
+- Layout responsivo
+- Estados visuais dos botões
+- Suporte touch e mouse
+- Animações suaves
+
+### ConnectionStatus
+- Indicadores visuais de conexão
+- Medição de ping em tempo real
+- Posicionamento inteligente
+- Animações de status
+
+## 🔧 Configuração
+
+O arquivo `config.ts` contém todas as configurações do cliente:
+
+```typescript
+export const CONFIG = {
+  SERVER_URL: 'http://localhost:5172',
+  MATCH_ENDPOINT: '/matches/match',
+  INITIALIZATION_DELAY: 10,
+  PING_INTERVAL: 5000,
+  // ... mais configurações
+}
+```
+
+## 🎯 Melhorias Implementadas
+
+### UI/UX
+- ✅ Design moderno com gradientes e efeitos de vidro
+- ✅ Animações suaves e feedback visual
+- ✅ Layout responsivo para todos os dispositivos
+- ✅ Componentes modulares e reutilizáveis
+
+### Funcionalidade
+- ✅ Status de conexão em tempo real
+- ✅ Medição de latência para vídeo e input
+- ✅ Feedback visual dos botões
+- ✅ Tratamento robusto de erros
+
+### Arquitetura
+- ✅ Hooks personalizados para lógica de negócio
+- ✅ Componentes com responsabilidades bem definidas
+- ✅ TypeScript para tipagem forte
+- ✅ Clean code e boas práticas
+
+## 🚀 Próximos Passos
+
+- [ ] Suporte a múltiplos jogadores
+- [ ] Configurações de qualidade de vídeo
+- [ ] Salvamento de preferências
+- [ ] Modo offline com cache
+- [ ] Integração com mais emuladores
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
